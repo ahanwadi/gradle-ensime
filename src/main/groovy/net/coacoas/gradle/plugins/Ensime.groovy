@@ -8,8 +8,8 @@ import org.gradle.api.logging.Logging
 
 /**
  * The Ensime plugin creates an ensime task that allows the build script
- * to create a .ensime project file that can be used for building 
- * Scala projects in emacs, Sublime Text 2, or jEdit. 
+ * to create a .ensime project file that can be used for building
+ * Scala projects in emacs, Sublime Text 2, or jEdit.
  *
  * &copy; Bill Carlson 2012
  */
@@ -62,7 +62,7 @@ class Ensime implements Plugin<Project> {
 		classpathSetting('compile-deps', 'compile') +
 		classpathSetting('runtime-deps', 'runtime') +
 		classpathSetting('test-deps', 'testRuntime') +
-		new EnsimeListSetting(keyword: 'depends-on-modules', values: project.dependsOnProjects.collect { it.name }) +
+		new EnsimeListSetting(keyword: 'depends-on-modules', values: []) +
 		new EnsimeListSetting(keyword: 'source-roots', values: getSourceSets())
 		return settings.collect{it.toSExp()}.join("\n")
 	}
